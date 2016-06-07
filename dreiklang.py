@@ -1,9 +1,9 @@
-# erste Übuung Dreiklang
+# erste Übung Dreiklang
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-#from scipy.io import wavfile
+from scipy.io import wavfile
 
 
 # Parameter
@@ -80,5 +80,5 @@ plt.plot(sample_points[0:400], signal_quantized[0:400], label='signal_quant')
 plt.legend()
 plt.show()
 
-path_on_your_pc = "./sine_440Hz.wav"
-#wavfile.write(path_on_your_pc, rate, signal_quantized)
+path_on_your_pc = "./dreiklang.wav"
+wavfile.write(path_on_your_pc, rate, signal_quantized)
