@@ -3,14 +3,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 
-input_file = "/tmp/data_web_demo/sv_sicakauf/2016-06-04_171233_539051_16kHz.wav"
-rate, signal = wavfile.read(input_file)
 
-print(type(rate))
 
 def spectrogram(signal, rate):
-	if type(signal) is not np.array:
-		assert(False), "signal has to be a numpy array."
+	
+	if type(signal) is not np.ndarray:
+		assert(False), "signal has to be a numpy ndarray."
 		
 	if type(rate) is not int:
 		assert(False), "rate has to be an int."
@@ -60,9 +58,14 @@ def spectrogram(signal, rate):
 if __name__ == "__main__":
 		
 	parser = argparse.ArgumentParser( description = " print sum of two numbers .")
-	parser.add_argument (" num1 ", help ="1st number ")
-	parser.add_argument (" num2 ", help ="2nd number ")
+	parser.add_argument("num1", help ="1st number ")
+	# parser.add_argument("num2", help ="2nd number ")
 	
 	args = parser.parse_args()
-	spectrogram( args.num1 , args.num2 )
+	input_file = args.num1
+	
+#	input_file = "/tmp/data_web_demo/sv_sicakauf/2016-06-04_171233_539051_16kHz.wav"
+	rate, signal = wavfile.read(input_file)
+	spectrogram(signal, rate)
+	# spectrogram( args.num1 , args.num2 )
 
